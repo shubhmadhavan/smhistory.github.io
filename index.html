@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Ordering Game</title>
+    <title>Shubh's Cards of History</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>      
 
+    <div class="settings-container">
+
+    <div id="settings-cog">⚙️</div>
+
+    <div id="settings-panel" class="hidden">
+
+        <h3>Game Settings</h3>
+
+        <label>
+            <input type="checkbox" id="setting-AH" checked>
+            Include Ancient History
+        </label>
+
+        <label>
+            <input type="checkbox" id="setting-MD" checked>
+            Include Medieval Indian History
+        </label>
+
+        <label>
+            <input type="checkbox" id="setting-MH" checked>
+            Include Modern Indian History
+        </label>
+
+        <label>
+            <input type="checkbox" id="setting-WH" checked>
+            Include World History
+        </label>
+
+        <button id="apply-settings">Apply</button>
+
+    </div>
+
+</div>
 
     <div class="game-container">
         <div class="card-container-question" id="card-container-question">

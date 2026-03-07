@@ -1,9 +1,50 @@
 
+
+/* link for data.json
+https://docs.google.com/spreadsheets/d/1nZhkkfQtdXGrGl6AJeY5SxDPyrqG3WdV8z4dgNLxf_k/edit?gid=0#gid=0
+*/
+
+
 /* Card Styles */
+
+
 
 #question-card:hover {
     animation: peekFlip 0.4s ease forwards;
 
+}
+
+
+.settings-container{
+    position:absolute;
+    top:15px;
+    right:20px;
+    z-index:1000;
+}
+
+#settings-cog{
+    font-size:28px;
+    cursor:pointer;
+}
+
+#settings-panel{
+    position:absolute;
+    right:0;
+    margin-top:10px;
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+    border-radius:8px;
+    width:230px;
+}
+
+#settings-panel label{
+    display:block;
+    margin-bottom:8px;
+}
+
+.hidden{
+    display:none;
 }
 
 
