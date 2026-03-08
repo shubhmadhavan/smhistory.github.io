@@ -6,7 +6,7 @@
 
 
 ## How to Play
-- Use this [link](https://shubhmadhavan.github.io/sm_history.github.io/) to start the Card game
+- Use this [link](https://shubhmadhavan.github.io/smhistory.github.io/) to start the Card game
 - There are four categories (Ancient History, Medieval History, Modern History and World History)
 - All are selected by defauly. However, they can be toggled through the Settings cogwheel
 - Drag and drop the Question Card at top to an appropriate place on the Deck (chronologically)
