@@ -1,53 +1,13 @@
 
 {
     "events": [
-      {
-        "year": "2006-03-01",
-        "event": "Y2K Bug",
-        "info1": "Potential computer system failures",
-        "info2": "A non-issue in retrospect",
-        "subj": "AH",
-        "imgUrl": "12.png"
-      },
-      {
-        "year": "1789",
-        "event": "French Revolution",
-        "info1": "1789-99",
-        "info2": "",
-        "subj": "WH",
-        "img": "12.png"
-      },
-      {
-        "year": "1775",
-        "event": "American War of Independence",
-        "info1": "1775-83",
-        "info2": "",
-        "subj": "WH",
-        "img": "12.png"
-      },
-      {
-        "year": "550",
-        "event": "550 Event",
-        "info1": "Terrorist attacks in the USA",
-        "info2": "Changed global security policies",
-        "subj": "MD",
-        "imgUrl": "12.png"
-      },
-      {
-        "year": "1857",
-        "event": "Great Revolt 1857",
-        "info1": "First Indian War of Independence",
-        "info2": "",
-        "subj": "MH",
-        "imgUrl": "12.png"
-      } ,
-      {
-        "year": "1942",
-        "event": "Quit India Movement",
-        "info1": "QIM",
-        "info2": "",
-        "subj": "MH",
-        "imgUrl": "12.png"
-      } 
-    ]
+      
+{"year": "-383","event": "2nd Buddhist Council","info1": "Vaishali, convened by Kalasoka","info2": "Split in Monastic Order – Sthaviravadin & Mahasanghika","subj": "AH","imgUrl": ""},
+{"year": "1931","event": "Gandhi-Irwin Pact","info1": "Mar 5, 1931","info2": "","subj": "MH","imgUrl": ""},
+{"year": "1942","event": "Quit India Movement","info1": "8 Aug, 1942 at Gowalia Tank, Bombay","info2": "key leaders including Gandhi, Nehru soon arrested","subj": "MH","imgUrl": ""},
+{"year": "1944","event": "Release of Gandhiji after arrest in relation to Quit India Movement","info1": "May, 1944","info2": "","subj": "MH","imgUrl": ""},
+{"year": "1775","event": "American War of Independence","info1": "1775-83","info2": "","subj": "WH","imgUrl": ""},
+{"year": "1789","event": "French Revolution","info1": "1789-99","info2": "","subj": "WH","imgUrl": ""}
+    
+]
   }
