@@ -309,10 +309,25 @@ body {
     }
 }
 
-@media only screen and (max-width: 1249px) {}
 
 @media only screen and (max-width: 1549px) {}
 
-@media only screen and (max-width: 999px) {}
+@media only screen and (max-width: 1249px) {}
 
-@media only screen and (max-width: 899px) {}
+
+@media only screen and (max-width: 899px) {
+body{
+    
+    zoom: 70% !important;
+
+    }
+}
+
+@media only screen and (max-width: 699px) {
+
+    body{
+    
+    zoom: 55% !important;
+
+    }
+}
