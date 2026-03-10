@@ -21,13 +21,13 @@ https://docs.google.com/spreadsheets/d/1nZhkkfQtdXGrGl6AJeY5SxDPyrqG3WdV8z4dgNLx
 }
 
 
-
 .sub-title
 {
     text-align: center;
     color: rgba(180, 180, 180, 0.6); /* SM Repository */
     margin-top: 12px;
     opacity: 1;
+    font-size:0.95rem;
 }
 
 .text-span {
@@ -37,7 +37,6 @@ opacity: 0.8;
 .text-span:hover {
     opacity: 1;
 }
-
 
 
 #question-card:hover {
