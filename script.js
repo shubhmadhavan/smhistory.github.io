@@ -20,7 +20,7 @@ const cog = document.getElementById("settings-cog");
 const panel = document.getElementById("settings-panel");
 
 cog.addEventListener("click", () => {
-    panel.classList.toggle("hidden");
+    panel.classList.toggle("hidden-settings");
 });
 
 document.getElementById("apply-settings").addEventListener("click", () => {
