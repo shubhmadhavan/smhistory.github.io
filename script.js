@@ -6,6 +6,8 @@ let tableCards = [];
 let currentQuestion = null;
 let strikes = 0;
 let score = 0;
+let latestWrongCard = null;
+
 
 let settings = {
     AH: true,
@@ -36,14 +38,18 @@ document.getElementById("apply-settings").addEventListener("click", () => {
 
 // Convert date string into sortable number (handles BCE)
 function getDateValue(dateString) {
-    const parts = dateString.split("-");
-    const year = parseInt(parts[0]);
+    const isNegative = dateString.startsWith("-");
+    const normalized = isNegative ? dateString.slice(1) : dateString;
+    const parts = normalized.split("-");
+
+    let year = parseInt(parts[0]);
     const month = parseInt(parts[1] || 1);
     const day = parseInt(parts[2] || 1);
 
+    if (isNegative) year = -year;
+
     return year * 10000 + month * 100 + day;
 }
-
 
 // Load events from JSON
 async function loadEvents() {
@@ -131,8 +137,12 @@ function updateTable() {
         const cardElement = createAnswerCard(card, index);
 
         if (card.wrong) {
-            cardElement.classList.add('wrong');
-        }
+        cardElement.classList.add('wrong');
+    }
+
+    if (card.latest) {
+        cardElement.classList.add('latest');
+    }
 
         table.appendChild(cardElement);
         table.appendChild(createDropZone(index + 1));
@@ -298,36 +308,47 @@ function handleDrop(e) {
 
     e.preventDefault();
 
+    clearLatestWrong();   // remove latest marker from previous mistake
+
+
     const position = parseInt(e.currentTarget.dataset.position);
 
     const insertedCard = { ...currentQuestion, wrong: false };
 
     tableCards.splice(position, 0, insertedCard);
 
-    updateTable();
-
     if (isOrderCorrect()) {
 
         score++;
         document.getElementById('score').textContent = `Score: ${score}`;
 
+        updateTable();
+        pickNextQuestion();
+        return;
+
     } else {
 
+        if (latestWrongCard) {
+            latestWrongCard.latest = false;
+        } // Remove previous latest flag
+
+
+        // Mark new wrong card
         insertedCard.wrong = true;
+        insertedCard.latest = true;
+        latestWrongCard = insertedCard;
 
         strikes++;
         updateHearts();
 
+        updateTable(); // render the wrong class
+
         if (strikes >= 3) {
 
-            updateTable();
-
             setTimeout(() => {
-
                 alert("Game Over! Final Score: " + score);
                 disableDragging();
-
-            }, 100);
+            }, 150);
 
             return;
         }
@@ -339,9 +360,11 @@ function handleDrop(e) {
     updateTable();
 }
 
-
 // Handle click placement
 function handleManualDrop(position) {
+
+    clearLatestWrong();   // remove latest marker from previous mistake
+
 
     position = parseInt(position);
 
@@ -349,39 +372,64 @@ function handleManualDrop(position) {
 
     tableCards.splice(position, 0, insertedCard);
 
-    updateTable();
-
     if (isOrderCorrect()) {
 
         score++;
         document.getElementById('score').textContent = `Score: ${score}`;
 
+        updateTable();
+        pickNextQuestion();
+        return;
+
     } else {
+
+        // Remove previous latest flag
+        if (latestWrongCard) {
+            latestWrongCard.latest = false;
+        }
+
+        // Mark new wrong card
+        insertedCard.wrong = true;
+        insertedCard.latest = true;
+        latestWrongCard = insertedCard;
 
         strikes++;
         updateHearts();
 
-        insertedCard.wrong = true;
-
-        tableCards.sort((a, b) => getDateValue(a.year) - getDateValue(b.year));
+        updateTable(); // render wrong class
 
         if (strikes >= 3) {
 
-            alert("Game Over! Final Score: " + score);
-            disableDragging();
+            setTimeout(() => {
+                alert("Game Over! Final Score: " + score);
+                disableDragging();
+            }, 150);
+
             return;
         }
+
+        tableCards.sort((a, b) => getDateValue(a.year) - getDateValue(b.year));
     }
 
     pickNextQuestion();
     updateTable();
 }
 
+function clearLatestWrong() {
+
+    if (latestWrongCard) {
+        latestWrongCard.latest = false;
+        latestWrongCard = null;
+    }
+}
+
+
 function restartGame() {
 
     // Reset game state
     usedEvents = [];
     tableCards = [];
+    latestWrongCard = null;
     currentQuestion = null;
     strikes = 0;
     score = 0;
