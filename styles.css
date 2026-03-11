@@ -153,7 +153,7 @@ are in style section of index.html itself
     opacity: 1;
 }
 
-h3 {
+h3 {  /* date or year*/
     font-size: 0.9rem;
     margin-top: 5px;
     color: rgba(255, 255, 255, 0.85);
@@ -176,17 +176,17 @@ h3 {
 .card.hidden > .card-img {
     transform: rotateY(-180deg);
 }
-
-.card-info {
+ 
+.card-info {        /* event title */
     color: rgba(235, 235, 235, 0.65);
     font-size: 0.8rem;
 }
-
-.card-info p:nth-of-type(2) {
+ 
+.card-info p:nth-of-type(2) {  /* info 1 */
     font-size: 0.76rem !important;
 }
 
-.card.hidden > .card-info-2 {
+.card.hidden > .card-info-2 {  /* info 2 */
     font-size: 0.65rem;
 }
 
@@ -341,4 +341,21 @@ body{
     zoom: 40% !important;
 
     }
+
+
+.card-info {        /* event title */
+    color: rgba(235, 235, 235, 0.65);
+    font-size: 0.4rem;
+}
+ 
+.card-info p:nth-of-type(2) {  /* info 1 */
+    font-size: 0.3rem !important;
+}
+
+.card.hidden > .card-info-2 {  /* info 2 */
+    font-size: 0.25rem;
+}
+
+
+
 }
