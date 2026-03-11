@@ -345,27 +345,27 @@ body{
 
     h3 { /* date or year */
 
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
     #question-event  { /* name of question */
 
-        font-size: 12px !important;
+        font-size: 10px !important;
     }
     
 
 
     .card-info {        /* event title */
         color: rgba(235, 235, 235, 0.65);
-        font-size: 12px !important;
+        font-size: 10px !important;
     }
     
     .card-info p:nth-of-type(2) {  /* info 1 */
-        font-size: 10px !important;
+        font-size: 8px !important;
     }
 
     .card.hidden > .card-info-2 {  /* info 2 */
-        font-size: 8px !important;
+        font-size: 6px !important;
     }   
 
 
