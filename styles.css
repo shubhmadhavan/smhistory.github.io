@@ -143,16 +143,15 @@ are in style section of index.html itself
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
     z-index: 99999 !important;
+    opacity: 0.8;
 }
 
 .card-arrow:hover {
     color: #ffffff;
     transform: scale(1.2);
+    opacity: 1;
 }
 
-.card > .card-arrow {
-    opacity: 0;
-}
 
 .card.hidden > .card-arrow {
     opacity: 1;
