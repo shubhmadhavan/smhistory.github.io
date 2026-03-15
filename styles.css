@@ -342,7 +342,7 @@ h3{
 @media (max-width: 900px){
   html{
     font-size:14px;
-     zoom: 70%;
+     zoom: 66% !important;
      
   }
   
@@ -351,7 +351,7 @@ h3{
 @media (max-width: 700px){
   html{
     font-size:12px;
-    zoom: 52%;
+    zoom: 52% !important;
   }
 
   .hearts{
