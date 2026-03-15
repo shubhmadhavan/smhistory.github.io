@@ -342,15 +342,22 @@ h3{
 @media (max-width: 900px){
   html{
     font-size:14px;
-     zoom: 75%;
+     zoom: 70%;
+     
   }
+  
 }
 
 @media (max-width: 700px){
   html{
     font-size:12px;
-    zoom: 57%;
+    zoom: 52%;
   }
+
+  .hearts{
+    bottom:22%;
+}
+
 }
 
 
