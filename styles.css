@@ -339,29 +339,14 @@ h3{
 
 /* Responsive scaling (instead of zoom) */
 
+
 @media (max-width: 900px){
   html{
     font-size:12px;
-     zoom: 66% !important;
-     
   }
   
+  *{zoom: 0.9;}
 }
 
-@media (max-width: 700px){
-  html{
-    font-size:11px;
-    zoom: 48% !important;
-  }
-
-  .hearts{
-    bottom:22%;
-}
-
-.card{
-    zoom: 88%;
-}
-
-}
 
 
