@@ -116,6 +116,7 @@ body {
 
 .card.hidden,
 .card.wrong.hidden{
+    
     background:rgba(100,100,100,0.5) !important;
     transform:rotateY(180deg);
 }
@@ -229,19 +230,23 @@ h3{
     border-radius:1rem;
     filter:drop-shadow(0 0.75rem 0.75rem rgba(0,0,0,0.25));
 
-     bottom:min(-34%, env(safe-area-inset-bottom));
-
+     bottom:min(-35%, env(safe-area-inset-bottom));
 
 }
 
+#score {
+    margin-top: 4rem;
+}
 
 /* Hearts */
 
 .hearts{
-    position:fixed;
+    position: fixed;
     left:0;
     right:0;
-    bottom:1.875rem;
+    bottom:-27%;
+    margin-top: 5rem;
+
     display:flex;
     justify-content:center;
     text-align:center;
@@ -250,6 +255,65 @@ h3{
 
 .heart{
     margin:0 0.3125rem;
+}
+
+.card.wrong {
+    background: linear-gradient(
+        to bottom,
+        rgba(156, 85, 85, 1) 20%,
+        rgba(100, 100, 100, 0.5) 100%
+    ) !important;
+}
+
+.card.wrong.latest{
+    animation: twitch 0.2s linear;
+}
+
+.card.perfect {
+    background: linear-gradient(
+        to bottom,
+        rgb(156, 143, 85) 20%,
+        rgba(100, 100, 100, 0.5) 100%
+    ) !important;
+}
+
+#question-card {
+    background: linear-gradient(
+        to bottom,
+        rgba(71, 98, 133, 0.7) 20%,
+        rgba(100, 100, 100, 0.5) 100%
+    );
+}
+
+.card-info.hidden {
+    /* display: none; */
+}
+
+.card > .card-info-2,
+.card.wrong > .card-info-2 {
+    color: rgba(234, 234, 234, 0);
+}
+
+.card.hidden > .card-info-2,
+.card.wrong.hidden > .card-info-2 {
+    transform: rotateY(-180deg);
+    color: rgba(234, 234, 234, 0.6);
+}
+
+.card.hidden > .card-arrow {
+    opacity: 1;
+}
+
+#settings-panel .hidden {
+
+}
+
+#card-container-table {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Animations */
@@ -286,3 +350,5 @@ h3{
     font-size:12px;
   }
 }
+
+
