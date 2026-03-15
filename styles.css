@@ -213,22 +213,27 @@ h3{
 /* Advance Box */
 
 .Advance{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:19rem;
+    height:7rem;
+
     font-size:0.875rem;
     text-align:center;
     color:rgba(203,201,201,0.7);
-    transform:translateX(-50%);
-    margin-bottom:0.625rem;
-    width:19rem !important;
-    height:7rem !important;
-    opacity:1;
+
     background-color:rgba(200,200,200,0.07);
     border:0.0625rem solid rgba(200,200,200,0.3);
     border-radius:1rem;
     filter:drop-shadow(0 0.75rem 0.75rem rgba(0,0,0,0.25));
-    position:fixed;
-    bottom:-3rem;
-    left:50%;
+
+     bottom:min(-34%, env(safe-area-inset-bottom));
+
+
 }
+
 
 /* Hearts */
 
