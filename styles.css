@@ -68,8 +68,9 @@ body {
 /* Card */
 
 .card {
-    width:9.375rem;
-    height:13.75rem;
+    width:clamp(7rem, 22vw, 9.375rem);
+    height:clamp(10rem, 32vw, 13.75rem);
+    
     border:0.0625rem solid rgba(120,120,120,0.4);
     border-radius:0.75rem;
     margin:0.625rem;
@@ -344,8 +345,7 @@ h3{
   html{
     font-size:12px;
   }
-  
-  *{zoom: 0.9;}
+
 }
 
 
