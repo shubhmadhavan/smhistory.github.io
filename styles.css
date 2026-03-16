@@ -350,11 +350,6 @@ h3{
 /* Responsive scaling (instead of zoom) */
 
 
-div.app-scale{
-
-    transform: scale(min(1, 95vw / 5500));
-
-}
 
 
 @media (max-width:960px){
@@ -362,8 +357,8 @@ div.app-scale{
     html{
         font-size:12px;
     }
-        div.app-scale{
-        zoom: 0.70 !important;
+     .app-scale{
+        zoom: 0.40 !important;
     }
 
 }
@@ -375,8 +370,8 @@ div.app-scale{
         font-size:11px;
     }
 
-    div.app-scale{
-    zoom: 0.55 !important;
+    .app-scale{
+    zoom: 0.45 !important;
     }
 
 }
