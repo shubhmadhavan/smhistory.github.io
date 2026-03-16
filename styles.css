@@ -72,8 +72,8 @@ body {
 /* Card */
 
 .card {
-    width:clamp(5rem, 17vw, 9.375rem);
-    height:clamp(5rem, 26vw, 13.75rem);
+    width:9.375rem;
+    height:13.75rem;
     
     border:0.0625rem solid rgba(120,120,120,0.4);
 
