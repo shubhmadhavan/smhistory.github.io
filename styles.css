@@ -1,6 +1,8 @@
 /* Root font scaling */
-html {
-  font-size: 16px;
+
+html{
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
 }
 
 body {
@@ -184,10 +186,12 @@ h3{
 
 #card-container-table{
     display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
     flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    max-width:100%;
+    padding:0 0.5rem;
+    box-sizing:border-box;
 }
 
 .game-container{
@@ -341,12 +345,16 @@ h3{
 /* Responsive scaling (instead of zoom) */
 
 
-@media (max-width: 900px){
+
+
+@media (max-width:900px){
+  html{
+    font-size:14px;
+  }
+}
+
+@media (max-width:600px){
   html{
     font-size:12px;
   }
-
 }
-
-
-
