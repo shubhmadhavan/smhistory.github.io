@@ -353,7 +353,7 @@ h3{
 @media (max-width:960px){
 
     html{
-        font-size:11px;
+        font-size:10px;
     }
      .app-scale{
         zoom: 0.75 !important;
@@ -364,6 +364,10 @@ h3{
     height:9.075rem;
     }
 
+    .card-info > p {
+        margin-top: -0.3rem;
+
+    }
 
 }
 
@@ -371,7 +375,7 @@ h3{
 @media (max-width:760px){
 
     html{
-        font-size:10px;
+        font-size:9px;
     }
 
     .app-scale{
