@@ -72,8 +72,8 @@ body {
 /* Card */
 
 .card {
-    width:clamp(6rem, 20vw, 9.375rem);
-    height:clamp(8rem, 28vw, 13.75rem);
+    width:clamp(5rem, 17vw, 9.375rem);
+    height:clamp(5rem, 26vw, 13.75rem);
     
     border:0.0625rem solid rgba(120,120,120,0.4);
 
@@ -349,22 +349,19 @@ h3{
 
 /* Responsive scaling (instead of zoom) */
 
-.app-scale{
-  transform-origin: top center;
-  transform: scale(min(1, 100vw / 1100));
-  width:1100px;
-  margin:0 auto;
+
+div.app-scale{
+
+  transform: scale(min(1, 100vw / 4200));
+
 }
-
-
 
 @media (max-width:960px){
   html{
     font-size:12px;
   }
-    .app-scale{
-    transform: scale(0.68) !important;
-    zoom: 0.8 !important;
+    div.app-scale{
+    zoom: 0.96 !important;
   }
 }
 
@@ -372,9 +369,10 @@ h3{
   html{
     font-size:11px;
   }
-.app-scale{
-    transform: scale(0.60) !important;
-zoom: 0.7 !important;
+div.app-scale{
+zoom: 0.92 !important;
 }
 
 }
+
+
