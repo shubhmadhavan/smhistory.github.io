@@ -358,7 +358,7 @@ h3{
 
 
 
-@media (max-width:900px){
+@media (max-width:960px){
   html{
     font-size:12px;
   }
@@ -368,7 +368,7 @@ h3{
   }
 }
 
-@media (max-width:600px){
+@media (max-width:760px){
   html{
     font-size:11px;
   }
