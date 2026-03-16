@@ -352,26 +352,32 @@ h3{
 
 div.app-scale{
 
-  transform: scale(min(1, 100vw / 4200));
+    transform: scale(min(1, 100vw / 4200));
 
 }
+
 
 @media (max-width:960px){
-  html{
-    font-size:12px;
-  }
-    div.app-scale{
-    zoom: 0.90 !important;
-  }
+
+    html{
+        font-size:12px;
+    }
+        div.app-scale{
+        zoom: 0.85 !important;
+    }
+
 }
 
+
 @media (max-width:760px){
-  html{
-    font-size:11px;
-  }
-div.app-scale{
-zoom: 0.84 !important;
-}
+
+    html{
+        font-size:11px;
+    }
+
+    div.app-scale{
+    zoom: 0.80 !important;
+    }
 
 }
 
