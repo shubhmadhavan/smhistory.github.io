@@ -1,7 +1,7 @@
 /* Root font scaling */
 
 html{
-  font-size:16px;
+  font-size:15px;
   -webkit-text-size-adjust:100%;
 }
 
@@ -360,7 +360,7 @@ h3{
     }
 
     .drop-zone{
-    width:1.1rem;
+    width:0.99rem;
     height:9.075rem;
     }
 
