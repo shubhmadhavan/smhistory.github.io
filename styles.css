@@ -11,6 +11,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+
 /* Card Styles */
 
 .title-header {
@@ -70,10 +72,11 @@ body {
 /* Card */
 
 .card {
-    width:clamp(7rem, 22vw, 9.375rem);
-    height:clamp(10rem, 32vw, 13.75rem);
+    width:clamp(6rem, 20vw, 9.375rem);
+    height:clamp(8rem, 28vw, 13.75rem);
     
     border:0.0625rem solid rgba(120,120,120,0.4);
+
     border-radius:0.75rem;
     margin:0.625rem;
     padding:0.625rem;
@@ -342,19 +345,26 @@ h3{
     100%{ transform:translateX(0); }
 }
 
+
+
 /* Responsive scaling (instead of zoom) */
+
+.app-scale{
+  transform-origin: top center;
+  transform: scale(clamp(0.65, 100vw / 1100, 1));
+}
 
 
 
 
 @media (max-width:900px){
   html{
-    font-size:14px;
+    font-size:12px;
   }
 }
 
 @media (max-width:600px){
   html{
-    font-size:12px;
+    font-size:11px;
   }
 }
