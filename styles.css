@@ -347,7 +347,6 @@ h3{
 
 
 
-/* Responsive scaling (instead of zoom) */
 
 
 
@@ -358,7 +357,8 @@ h3{
         font-size:12px;
     }
      .app-scale{
-        zoom: 0.40 !important;
+          transform: scale(0.40);
+    transform-origin: top center;
     }
 
 }
@@ -371,7 +371,8 @@ h3{
     }
 
     .app-scale{
-    zoom: 0.45 !important;
+     transform: scale(0.40);
+    transform-origin: top center;
     }
 
 }
