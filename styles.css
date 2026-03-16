@@ -349,7 +349,7 @@ h3{
 
 /* Responsive scaling (instead of zoom) */
 
-body {
+.app-scale {
   transform-origin: top center;
   transform: scale(clamp(0.65, 100vw / 1100, 1));
 }
@@ -361,7 +361,7 @@ body {
   html{
     font-size:12px;
   }
-    body{
+    .app-scale{
     transform: scale(0.85);
   }
 }
@@ -370,7 +370,7 @@ body {
   html{
     font-size:11px;
   }
-body{
+.app-scale{
     transform: scale(0.75);
   }
 }
