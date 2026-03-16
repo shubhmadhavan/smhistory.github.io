@@ -72,8 +72,8 @@ body {
 /* Card */
 
 .card {
-    width:9.375rem;
-    height:13.75rem;
+    width:clamp(1.7rem, 15vw, 9.375rem);
+    height:clamp(3rem, 24vw, 13.75rem);
     
     border:0.0625rem solid rgba(120,120,120,0.4);
 
@@ -347,6 +347,7 @@ h3{
 
 
 
+/* Responsive scaling (instead of zoom) */
 
 
 
@@ -357,8 +358,7 @@ h3{
         font-size:12px;
     }
      .app-scale{
-          transform: scale(0.40);
-    transform-origin: top center;
+        zoom: 0.75 !important;
     }
 
 }
@@ -371,8 +371,7 @@ h3{
     }
 
     .app-scale{
-     transform: scale(0.40);
-    transform-origin: top center;
+    zoom: 0.65 !important;
     }
 
 }
