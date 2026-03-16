@@ -364,6 +364,7 @@ h3{
   }
     .app-scale{
     transform: scale(0.68) !important;
+    zoom: 0.8 !important;
   }
 }
 
@@ -373,5 +374,7 @@ h3{
   }
 .app-scale{
     transform: scale(0.60) !important;
-  }
+zoom: 0.7 !important;
+}
+
 }
