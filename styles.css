@@ -349,7 +349,7 @@ h3{
 
 /* Responsive scaling (instead of zoom) */
 
-.app-scale{
+body {
   transform-origin: top center;
   transform: scale(clamp(0.65, 100vw / 1100, 1));
 }
@@ -361,10 +361,16 @@ h3{
   html{
     font-size:12px;
   }
+    body{
+    transform: scale(0.85);
+  }
 }
 
 @media (max-width:600px){
   html{
     font-size:11px;
+  }
+body{
+    transform: scale(0.75);
   }
 }
