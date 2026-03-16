@@ -352,7 +352,7 @@ h3{
 
 div.app-scale{
 
-    transform: scale(min(1, 100vw / 4800));
+    transform: scale(min(1, 95vw / 5500));
 
 }
 
@@ -363,7 +363,7 @@ div.app-scale{
         font-size:12px;
     }
         div.app-scale{
-        zoom: 0.80 !important;
+        zoom: 0.70 !important;
     }
 
 }
@@ -376,7 +376,7 @@ div.app-scale{
     }
 
     div.app-scale{
-    zoom: 0.75 !important;
+    zoom: 0.55 !important;
     }
 
 }
