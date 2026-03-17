@@ -86,8 +86,8 @@ body {
 
 .card {
   width: clamp(4rem, 14vw, 10.4rem); 
-  height: clamp(8rem, 25.2vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one 
-  but hegiht 2 x width for first two*/
+  height: clamp(7.2rem, 25.2vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one 
+  but hegiht 1.8 x width for first two*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
   border-radius: 0.75rem;
@@ -238,7 +238,7 @@ h3, #question-event {
 
 .drop-zone {
   width: 1.5625rem;
-  height: 9.375rem;
+  height: 12.375rem;
   border: 0.125rem dashed rgba(214,214,214,0.2);
   margin: 0 0.3125rem;
   display: inline-block;
@@ -359,11 +359,11 @@ h3, #question-event {
 /* ========================= */
 
 @media (max-width: 960px) {
-  html { font-size: 12.4px; 
+  html { font-size: 9px; 
   }
 
   .drop-zone {
-    width: 1rem;
+    width: 0.7rem;
     height: 8rem;
   }
 
@@ -376,5 +376,5 @@ h3, #question-event {
 }
 
 @media (max-width: 760px) {
-  html { font-size: 11px; }
+
 }
