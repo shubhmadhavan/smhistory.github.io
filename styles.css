@@ -85,8 +85,8 @@ body {
 /* ========================= */
 
 .card {
-  width: clamp(4.5rem, 18vw, 10.4rem); 
-  height: clamp(6.975rem, 28vw, 16.12rem); /* height = 1.55 x width*/
+  width: clamp(4rem, 14vw, 10.4rem); 
+  height: clamp(6.2rem, 21.7vw, 16.12rem); /* height = 1.55 x width*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
   border-radius: 0.75rem;
@@ -367,7 +367,7 @@ h3, #question-event {
   }
 
   h3, #question-event {
-  font-size: 0.83rem;
+  font-size: 0.76rem;
   margin-top: 0.1125rem;
   font-weight: 100;
 }
