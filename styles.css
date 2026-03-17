@@ -85,8 +85,8 @@ body {
 /* ========================= */
 
 .card {
-  width: clamp(4rem, 14vw, 9.375rem); /* fixed too small min */
-  height: clamp(6rem, 22vw, 13.75rem);
+  width: clamp(4.5rem, 18vw, 10.4rem); 
+  height: clamp(6.975rem, 28vw, 16.12rem); /* height = 1.55 x width*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
   border-radius: 0.75rem;
@@ -172,8 +172,8 @@ body {
 /* Text */
 /* ========================= */
 
-h3 {
-  font-size: 0.875rem;
+h3, #question-event {
+  font-size: 0.95rem;
   margin-top: 0.3125rem;
   color: rgba(255,255,255,0.85);
   font-weight: 500;
@@ -185,7 +185,7 @@ h3 {
 }
 
 .card-info p:nth-of-type(2) {
-  font-size: 0.6875rem !important;
+  font-size: 0.6875rem;
 }
 
 .card.hidden > .card-info-2 {
@@ -358,12 +358,20 @@ h3 {
 /* ========================= */
 
 @media (max-width: 960px) {
-  html { font-size: 12px; }
+  html { font-size: 12.4px; 
+  }
 
   .drop-zone {
     width: 1rem;
     height: 8rem;
   }
+
+  h3, #question-event {
+  font-size: 0.87rem;
+  margin-top: 0.1125rem;
+  font-weight: 100;
+}
+
 }
 
 @media (max-width: 760px) {
