@@ -85,8 +85,8 @@ body {
 /* ========================= */
 
 .card {
-  width: clamp(4rem, 14vw, 10.4rem); 
-  height: clamp(6.2rem, 21.7vw, 16.12rem); /* height = 1.55 x width*/
+  width: clamp(4rem, 15vw, 10.4rem); 
+  height: clamp(8rem, 30vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one but 2 x width for others*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
   border-radius: 0.75rem;
