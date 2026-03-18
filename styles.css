@@ -361,7 +361,7 @@ h3, #question-event {
 
 @media (max-width: 960px) {
 
-  body {  zoom: 100%;}
+  body {  zoom: 102%;}
 
   html { font-size: 5px !important;  /*this used to be 9px*/
 
