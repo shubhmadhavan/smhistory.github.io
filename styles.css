@@ -1,12 +1,12 @@
 /* Root font scaling */
 
 html {
-  font-size: 15px;
+  font-size: 14px;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  filter: contrast(1.4);
+
   background-color: #2e2d2d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -32,7 +32,7 @@ body {
   color: rgba(180, 180, 180, 0.6);
   font-size: 0.875rem;
   margin-top: 0.75rem;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .title-header:hover {
@@ -161,7 +161,7 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
   z-index: 2; /* reduced */
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .card-arrow:hover {
@@ -363,7 +363,7 @@ h3, #question-event {
 
   body {  zoom: 100%;}
 
-  html { font-size: 9px;  /*this used to be 12.4px*/
+  html { font-size: 5px !important;  /*this used to be 9px*/
 
   .drop-zone {
     width: 0.7rem;
