@@ -197,6 +197,7 @@ function createAnswerCard(card, index) {
     const back = document.createElement('div');
     back.classList.add('card-info-2', 'hidden');
 
+
     back.innerHTML =
         `<p class="info2">${card.info2}</p>`;
 

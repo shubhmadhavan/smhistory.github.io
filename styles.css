@@ -6,7 +6,6 @@ html {
 }
 
 body {
-
   background-color: #2e2d2d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -16,7 +15,6 @@ body {
 .sub-title{
   margin-top: 0.2rem;
   font-style: italic;
-
   font-size: 0.79rem !important;
 opacity: 0.55;
 transition: ease 0.4s opacity;
@@ -55,7 +53,6 @@ transition: ease 0.4s opacity;
 
 
 
-
 /* ========================= */
 /* Settings */
 /* ========================= */
@@ -65,13 +62,13 @@ transition: ease 0.4s opacity;
   top: 0.9375rem;
   right: 1.25rem;
   z-index: 1000;
+  opacity: 0.6;
 }
 
 #settings-cog {
   font-size: 1.75rem;
   cursor: pointer;
 }
-
 
 #settings-panel {
   font-size: 0.875rem;
@@ -135,7 +132,7 @@ transition: ease 0.4s opacity;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.35);
 }
 
@@ -179,7 +176,7 @@ transition: ease 0.4s opacity;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
   z-index: 2; /* reduced */
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .card-globe:hover {
@@ -193,11 +190,10 @@ transition: ease 0.4s opacity;
 /* ========================= */
 
 #question-event {
-      text-decoration: underline;
       font-size: 1.02rem;
-       color: rgba(255,255,255,0.85);
-       font-weight: 520;
-        margin-top: 0.6rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 520;
+      margin-top: 0.6rem;
 }
 
 h3 {
@@ -205,7 +201,6 @@ h3 {
   margin-top: 0.3125rem;
   color: rgba(255,255,255,0.85);
   font-weight: 500;
-
 }
 
 .event {
@@ -215,25 +210,12 @@ h3 {
   text-decoration: underline;
 }
 
-.info1, .info2 {
-  font-style: italic;
-  margin-top: -0.4rem;
-  opacity: 0.7;
-  font-size: 0.74rem;
-}
 
 .card-info {
   color: rgba(235,235,235,0.99);
-  
 }
 
-.card-info p:nth-of-type(2) {
-  font-size: 0.6875rem;
-}
 
-.card.hidden > .card-info-2 {
-  font-size: 0.6875rem;
-}
 
 /* ========================= */
 /* Card Image */
@@ -254,6 +236,21 @@ h3 {
 .card.hidden > .card-img {
   transform: rotateY(-180deg);
 }
+
+
+.card-info-2.hidden {display: none;} /* info2 hidden */
+.card-info-2 {opacity: 1; transform: rotateY(-180deg); 
+  color: rgba(235,235,235,0.59);}
+
+  .info1, .info2 {
+  font-style: italic;
+  margin-top: -0.4rem;
+  opacity: 0.7;
+
+}
+
+.info1 {font-size: 0.72rem;}
+.info2 {font-size: 0.65rem;}
 
 /* ========================= */
 /* Containers */
@@ -406,15 +403,24 @@ h3 {
 
   html { font-size: 8px !important;  /*this used to be 9px*/
 
-  .sub-title {  font-size: 0.7rem !important;
-}
 
 
   h3, #question-event {
-  font-size: 0.76rem;
   margin-top: 0.1125rem;
-  font-weight: 100;
+  font-weight: unset !important;
+  font-size: 0.8rem !important;
 }
+
+ .event {
+    font-weight: unset !important;
+  font-size: 0.69rem !important;
+  opacity: 1;
+  text-decoration: unset;
+ }
+
+.info1,.info2 {opacity: 0.65 !important;}
+
+   .sub-title {  font-size: 0.7rem !important;}
 
 
   .drop-zone {
