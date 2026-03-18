@@ -10,6 +10,7 @@ body {
   background-color: #2e2d2d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  zoom: 105%;
 }
 
 /* ========================= */
@@ -86,7 +87,7 @@ body {
 
 .card {
   width: clamp(4rem, 14vw, 10.4rem); 
-  height: clamp(6.2rem, 25.2vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one 
+  height: clamp(6.2rem, 21.7vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one 
   but hegiht 1.55 x width for first two*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
@@ -359,6 +360,9 @@ h3, #question-event {
 /* ========================= */
 
 @media (max-width: 960px) {
+
+  body {  zoom: 100%;}
+
   html { font-size: 9px;  /*this used to be 12.4px*/
 
   .drop-zone {
