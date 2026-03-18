@@ -191,18 +191,18 @@ function createAnswerCard(card, index) {
 
     front.innerHTML =
         `<h3>${card.year}</h3>
-         <p>${card.event}</p>
-         <p>${card.info1}</p>`;
+         <p class="event">${card.event}</p>
+         <p class="info1">${card.info1}</p>`;
 
     const back = document.createElement('div');
     back.classList.add('card-info-2', 'hidden');
 
     back.innerHTML =
-        `<p>${card.info2}</p>`;
+        `<p class="info2">${card.info2}</p>`;
 
 
     const arrow = document.createElement('span');
-    arrow.classList.add('card-arrow');
+    arrow.classList.add('card-globe');
     arrow.textContent = '🌐';
 
     arrow.addEventListener('click', () => {

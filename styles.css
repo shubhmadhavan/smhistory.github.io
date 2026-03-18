@@ -10,7 +10,14 @@ body {
   background-color: #2e2d2d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  zoom: 105%;
+  zoom: 109%;
+}
+
+.sub-title{
+  margin-top: 0.2rem;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.79rem !important;
 }
 
 /* ========================= */
@@ -149,10 +156,10 @@ body {
 }
 
 /* ========================= */
-/* Arrow */
+/* card-globe */
 /* ========================= */
 
-.card-arrow {
+.card-globe {
   position: absolute;
   bottom: 0.625rem;
   left: 0.625rem;
@@ -164,7 +171,7 @@ body {
   opacity: 1;
 }
 
-.card-arrow:hover {
+.card-globe:hover {
   color: #fff;
   transform: scale(1.2);
   opacity: 1;
@@ -174,16 +181,39 @@ body {
 /* Text */
 /* ========================= */
 
-h3, #question-event {
+#question-event {
+      text-decoration: underline;
+      font-size: 1.02rem;
+       color: rgba(255,255,255,0.85);
+       font-weight: 520;
+        margin-top: 0.6rem;
+}
+
+h3 {
   font-size: 0.95rem;
   margin-top: 0.3125rem;
   color: rgba(255,255,255,0.85);
   font-weight: 500;
+
+}
+
+.event {
+  font-size: 0.84rem;
+  font-weight: 593;
+  margin-top: -0.6rem;
+  text-decoration: underline;
+}
+
+.info1, .info2 {
+  font-style: italic;
+  margin-top: -0.4rem;
+  opacity: 0.7;
+  font-size: 0.74rem;
 }
 
 .card-info {
-  color: rgba(235,235,235,0.65);
-  font-size: 0.75rem;
+  color: rgba(235,235,235,0.99);
+  
 }
 
 .card-info p:nth-of-type(2) {
@@ -365,10 +395,9 @@ h3, #question-event {
 
   html { font-size: 8px !important;  /*this used to be 9px*/
 
-  .drop-zone {
-    width: 0.7rem;
-    height: 8rem;
-  }
+  .sub-title {  font-size: 0.7rem !important;
+}
+
 
   h3, #question-event {
   font-size: 0.76rem;
@@ -376,6 +405,15 @@ h3, #question-event {
   font-weight: 100;
 }
 
+
+  .drop-zone {
+    width: 0.7rem;
+    height: 8rem;
+  }
+
+  .card-globe {
+    font-size: 0.79rem;
+}
 }
 
 @media (max-width: 760px) {
