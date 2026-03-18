@@ -363,7 +363,7 @@ h3, #question-event {
 
   body {  zoom: 102%;}
 
-  html { font-size: 5px !important;  /*this used to be 9px*/
+  html { font-size: 8px !important;  /*this used to be 9px*/
 
   .drop-zone {
     width: 0.7rem;
