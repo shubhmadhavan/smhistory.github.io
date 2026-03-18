@@ -16,8 +16,14 @@ body {
 .sub-title{
   margin-top: 0.2rem;
   font-style: italic;
-  opacity: 0.8;
+
   font-size: 0.79rem !important;
+opacity: 0.55;
+transition: ease 0.4s opacity;
+}
+
+.sub-title:hover {
+    opacity: 1;
 }
 
 /* ========================= */
@@ -39,12 +45,16 @@ body {
   color: rgba(180, 180, 180, 0.6);
   font-size: 0.875rem;
   margin-top: 0.75rem;
-  opacity: 1;
+  opacity: 0.5;
+    transition: ease 0.4s opacity;
 }
 
 .title-header:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
+
+
+
 
 /* ========================= */
 /* Settings */
@@ -61,6 +71,7 @@ body {
   font-size: 1.75rem;
   cursor: pointer;
 }
+
 
 #settings-panel {
   font-size: 0.875rem;
