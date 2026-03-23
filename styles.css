@@ -397,12 +397,12 @@ h3 {
 /* Responsive */
 /* ========================= */
 
-@media (max-width: 960px) {
+@media (max-width: 920px) {
 
-  body {  zoom: 102%;}
+  body {  zoom: 152%;} /* 102% */ 
 
-  html { font-size: 8px !important;  /*this used to be 9px*/
 
+  html { font-size: 7px !important;  /*this used to be 9px*/
 
 
   h3, #question-event {
