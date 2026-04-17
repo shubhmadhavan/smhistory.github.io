@@ -33,7 +33,7 @@
 
 <div class="app-scale" style="margin-top: -12px;">>
 
-    <div class="title-header">[ Shubh Madhavan's Cards from History ]</div>
+    <div class="title-header" >[ Shubh Madhavan's Cards from History ]</div>
 
 
     <div class="settings-container">
@@ -70,9 +70,9 @@
 
 
 <!---->
-        <div class="sub-title"> <span class="text-span">Question</span></div>
+        <div class="sub-title"> <span class="text-span" style="display: none;">Question</span></div>
 
-                    <div class="game-container" style="margin-top: -2px">
+                    <div class="game-container">
                         
                         <div class="card-container-question" id="card-container-question">
                             <div class="card" id="question-card">
@@ -81,10 +81,20 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        
                     </div>
 
+        
+        <div class="date-input-container-1">
+                    <input type="text" id="date-input" placeholder="">
+                </div>
+                <div class="date-input-container-2">
+                     <button id="submit-date">Enter</button>
+                </div>
 
-    <hr style="opacity: 0.2; margin-top: -0.7rem;">
+    <hr style="opacity: 0.2; margin-top: -0.7rem; z-index: 0;">
    <!--     <div class="sub-title" style=""> <span class="text-span">Answer Deck:</span></div> 
 -->
 
@@ -97,17 +107,27 @@
 
                     <div class="strike-zone">
 
+                        
                         <label>
-                            <button  class="Advance"> <p id="score">Score: 0</p></button>
-                            </label>  
-                            <br><br>
                             
-                        <div class="hearts">
-                            <div id="heart1" class="heart"> ❤️ </div>
-                            <div id="heart2" class="heart"> ❤️ </div>
-                            <div id="heart3" class="heart"> ❤️ </div>
-                        </div>
+                        <button  class="Advance"> 
+                            
 
+                                             <div class="hearts">
+                                <div id="heart1" class="heart"> ❤️ </div>
+                                <div id="heart2" class="heart"> ❤️ </div>
+                                <div id="heart3" class="heart"> ❤️ </div>
+                                         </div>
+                        <p id="score">Score: 0    </p>
+                    
+                        
+           
+                        </button>
+
+                        </label>  
+                        <br><br>
+                            
+                    
                         
                     </div>
 

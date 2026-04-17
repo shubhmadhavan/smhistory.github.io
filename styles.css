@@ -9,7 +9,7 @@ body {
   background-color: #2e2d2d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  zoom: 109%;
+ 
 }
 
 .sub-title{
@@ -41,7 +41,7 @@ transition: ease 0.4s opacity;
 .title-header {
   text-align: center;
   color: rgba(180, 180, 180, 0.6);
-  font-size: 0.875rem;
+  font-size: 0.6rem;
   margin-top: 0.75rem;
   opacity: 0.5;
     transition: ease 0.4s opacity;
@@ -102,14 +102,16 @@ transition: ease 0.4s opacity;
 
 .card {
   width: clamp(4rem, 14vw, 10.4rem); 
-  height: clamp(6.2rem, 21.7vw, 16.12rem);   /* height = 1.55 x width for pc i.e. third one 
+  height: clamp(6.2rem, 21.7vw, 15.9rem);   /* height = 1.55 x width for pc i.e. third one 
   but hegiht 1.55 x width for first two*/
 
   border: 0.0625rem solid rgba(120, 120, 120, 0.4);
   border-radius: 0.75rem;
 
-  margin: 0.625rem;
-  padding: 0.625rem;
+  margin: 0.325rem;
+  margin-top: 0.9rem;
+  
+  padding: 0.125rem;
 
   text-align: center;
   position: relative;
@@ -134,6 +136,7 @@ transition: ease 0.4s opacity;
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.35);
+  z-index: 20000 !important;
 }
 
 .card::before {
@@ -262,47 +265,67 @@ h3 {
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 0.3rem;
 }
 
 .game-container {
   display: flex;
   justify-content: center;
-  margin: 1.25rem 0;
+  margin: -0.4rem 0;
 }
+
 
 /* ========================= */
 /* Drop Zone */
 /* ========================= */
 
 .drop-zone {
-  width: 1.5625rem;
+  width: 0.925rem;
+    padding: 2px;
   height: 12.375rem;
-  border: 0.125rem dashed rgba(214,214,214,0.2);
-  margin: 0 0.3125rem;
+  border: 0.125rem dashed rgba(214,214,214,0);
+
+  margin: 0 0.0025rem;
+
+  margin: -5px;
   display: inline-block;
   transition: background 0.3s ease, border 0.3s ease;
 }
+
+.drop-zone:hover {
+  cursor:pointer;
+}
+/*
 
 .drop-zone:hover {
   background: rgba(255,255,255,0.05);
   border: 0.125rem dashed rgba(214,214,214,0.4);
 }
 
+*/
+
 /* ========================= */
 /* Advance Box */
 /* ========================= */
 
 .Advance {
+
+/*
+position: relative; 
+if you put position relative then remove the next two
+*/
   position: fixed;
+  bottom: 1.8rem;
+
+
   left: 50%;
   
   transform: translateX(-50%);
-
+  
+  margin-top: 4rem;
   
   width: 18rem;
-  height: 5rem;
-
+  height: 2.1rem;
   font-size: 0.875rem;
   text-align: center;
   color: rgba(203,201,201,0.7);
@@ -313,30 +336,42 @@ h3 {
 
   filter: drop-shadow(0 0.75rem 0.75rem rgba(0,0,0,0.25));
 
-  bottom: -4.45rem; /* FIX */
-}
-
-#score {
-  margin-top: 3rem;
-}
-
-/* ========================= */
-/* Hearts */
-/* ========================= */
-
-.hearts {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -2.3rem; /* FIX */
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
 }
 
 .heart {
-  margin: 0 0.3125rem;
+  margin: -0.35rem 0.5125rem;
 }
+
+.hearts {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+#score {
+  margin-top: 0.6rem;
+}
+
+.card-container-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
+
+
 
 /* ========================= */
 /* States */
@@ -368,6 +403,62 @@ h3 {
     rgba(71, 98, 133, 0.7) 20%,
     rgba(100, 100, 100, 0.5) 100%
   );
+}
+
+#question-card {
+    transition: all 0.9s ease;
+}
+
+#question-card.shrunk {
+    height: 3rem;
+    width: 52rem;
+}
+
+.date-input-container-1 {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 0.8rem;
+    opacity: 0.8;
+}
+
+
+
+#date-input {
+    width:8rem;
+    text-align: center;
+      background-color: #504f4f;
+      color: #ededed;
+         font-size: 1rem;
+      height: 1.4rem;
+    border: solid 1px #3f3f3f;
+    z-index: 2191291 !important;
+}
+
+
+input:focus-visible {
+  outline: solid 1px rgb(55, 126, 126);
+}
+
+#date-input:hover {
+  opacity: 1;
+}
+
+.date-input-container-2 {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 2px;
+   opacity: 0;
+}
+
+#submit-date { /* Place Button */
+
+   font-size: 0.75rem;
+    height: 1.2rem;
+    background-color: #706f6f;
+    z-index: 20;
+  
 }
 
 /* ========================= */
@@ -424,13 +515,29 @@ h3 {
 
 
   .drop-zone {
-    width: 0.7rem;
+    width: 0.7rem; /* 0.7rem; */
     height: 8rem;
   }
 
   .card-globe {
     font-size: 0.79rem;
 }
+
+
+#date-input {
+
+         font-size: 1rem;
+      height: 2rem;
+}
+
+#submit-date { /* Place Button */
+
+   font-size: 0.85rem;
+    height: 1.9rem;
+
+  
+}
+
 }
 
 @media (max-width: 760px) {

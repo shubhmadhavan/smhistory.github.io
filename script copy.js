@@ -121,33 +121,50 @@ function setupQuestionCard() {
     }
 
     questionCard.ondragstart = dragStart;
-    focusDateInput();
 }
 
 
 // Update table with cards and drop zones
 function updateTable() {
+
     const table = document.getElementById('card-container-table');
     table.innerHTML = '';
 
+    table.appendChild(createDropZone(0));
+
     tableCards.forEach((card, index) => {
 
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('card-wrapper');
-
-        const leftDZ = createDropZone(index);
         const cardElement = createAnswerCard(card, index);
-        const rightDZ = createDropZone(index + 1);
 
-        wrapper.appendChild(leftDZ);
-        wrapper.appendChild(cardElement);
-        wrapper.appendChild(rightDZ);
+        if (card.wrong) {
+        cardElement.classList.add('wrong');
+    }
 
-        table.appendChild(wrapper);
+    if (card.latest) {
+        cardElement.classList.add('latest');
+    }
+
+        table.appendChild(cardElement);
+        table.appendChild(createDropZone(index + 1));
     });
 }
 
+function createCardWithZones(card, index) {
 
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('card-wrapper');
+
+    const leftDrop = createDropZone(index);
+    const rightDrop = createDropZone(index + 1);
+
+    const cardElement = createAnswerCard(card, index);
+
+    wrapper.appendChild(leftDrop);
+    wrapper.appendChild(cardElement);
+    wrapper.appendChild(rightDrop);
+
+    return wrapper;
+}
 
 // Create drop zone
 function createDropZone(position) {
@@ -378,16 +395,7 @@ function handleManualDrop(position) {
         document.getElementById('score').textContent = `Score: ${score}`;
 
         updateTable();
-            if (tableCards.length >= 20) {
-                shrinkQuestionCard();
-            }
-                
-        showCorrectYearFeedback();
-
-setTimeout(() => {
-    pickNextQuestion();
-}, 999);
-
+        pickNextQuestion();
         return;
 
     } else {
@@ -407,10 +415,6 @@ setTimeout(() => {
 
         updateTable(); // render wrong class
 
-        if (tableCards.length >= 20) {
-            shrinkQuestionCard();
-        }
-
         if (strikes >= 3) {
 
             setTimeout(() => {
@@ -424,13 +428,7 @@ setTimeout(() => {
         tableCards.sort((a, b) => getDateValue(a.year) - getDateValue(b.year));
     }
 
-
-    showCorrectYearFeedback();
-
-setTimeout(() => {
     pickNextQuestion();
-}, 999);
-
     updateTable();
 }
 
@@ -442,56 +440,6 @@ function clearLatestWrong() {
     }
 }
 
-function handleDateSubmit() {
-
-    if (!currentQuestion) return;
-
-    const inputEl = document.getElementById("date-input");
-    const input = inputEl.value.trim();
-    if (!input) return;
-
-    clearLatestWrong();
-
-    const guessedValue = getDateValue(input);
-
-    let guessedPosition = 0;
-    while (
-        guessedPosition < tableCards.length &&
-        getDateValue(tableCards[guessedPosition].year) < guessedValue
-    ) {
-        guessedPosition++;
-    }
-
-    handleManualDrop(guessedPosition);
-}
-
-function showCorrectYearFeedback() {
-
-    const inputEl = document.getElementById("date-input");
-
-    if (!currentQuestion || !inputEl) return;
-
-    inputEl.value = currentQuestion.year;
-    inputEl.style.color = "#00c853";
-
-    inputEl.disabled = true;
-
-    setTimeout(() => {
-        inputEl.value = "";
-        inputEl.style.color = "";
-        inputEl.disabled = false;
-
-        focusDateInput(); // 👈 important
-    }, 1500);
-}
-
-function focusDateInput() {
-    const input = document.getElementById("date-input");
-    if (input) {
-        input.focus();
-        input.select(); // optional: highlights text
-    }
-}
 
 function restartGame() {
 
@@ -524,27 +472,5 @@ function restartGame() {
     // Reload filtered events
     loadEvents();
 }
-
-function shrinkQuestionCard() {
-    document.getElementById("question-card").classList.add("shrunk");
-}
-
-window.addEventListener("load", focusDateInput);
-
-document.getElementById("submit-date").addEventListener("click", (e) => {
-    e.preventDefault();
-    handleDateSubmit();
-    focusDateInput();
-});
-
-document.getElementById("date-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        e.preventDefault();
-        handleDateSubmit();
-    }
-});
-
-
-
 // Start game
 loadEvents();
