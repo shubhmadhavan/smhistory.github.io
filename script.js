@@ -137,6 +137,15 @@ function updateTable() {
 
         const leftDZ = createDropZone(index);
         const cardElement = createAnswerCard(card, index);
+
+if (card.wrong) {
+    cardElement.classList.add('wrong');
+}
+
+if (card.latest) {
+    cardElement.classList.add('latest');
+}
+
         const rightDZ = createDropZone(index + 1);
 
         wrapper.appendChild(leftDZ);

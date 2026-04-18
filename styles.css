@@ -115,17 +115,20 @@ transition: ease 0.4s opacity;
 
   text-align: center;
   position: relative;
-  cursor: pointer;
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
   overflow: hidden;
 
+    cursor: pointer;
+
+    
   background: linear-gradient(
     to bottom,
     rgba(88,177,190,0.49) 20%,
     rgba(100,100,100,0.5) 100%
+    
   );
 
   /* 3D FIX */
@@ -186,8 +189,10 @@ transition: ease 0.4s opacity;
   color: #fff;
   transform: scale(1.2);
   opacity: 1;
+    
 }
 
+.card#question-card {  cursor: help !important; }
 /* ========================= */
 /* Text */
 /* ========================= */
@@ -197,7 +202,9 @@ transition: ease 0.4s opacity;
       color: rgba(255,255,255,0.85);
       font-weight: 520;
       margin-top: 0.6rem;
+    
 }
+
 
 h3 {
   font-size: 0.95rem;
@@ -275,26 +282,34 @@ h3 {
 }
 
 
+
 /* ========================= */
 /* Drop Zone */
 /* ========================= */
 
 .drop-zone {
-  width: 0.925rem;
-    padding: 2px;
-  height: 12.375rem;
+
+
+  height: 11.375rem;
   border: 0.125rem dashed rgba(214,214,214,0);
 
-  margin: 0 0.0025rem;
 
-  margin: -5px;
+
+  margin: 25px -6px;
+  width: 0.895rem;
+
   display: inline-block;
   transition: background 0.3s ease, border 0.3s ease;
+
+z-index: 222999;
+
 }
 
 .drop-zone:hover {
-  cursor:pointer;
+  cursor:cell;
 }
+
+
 /*
 
 .drop-zone:hover {
@@ -435,6 +450,18 @@ if you put position relative then remove the next two
     z-index: 2191291 !important;
 }
 
+/* prevent arrow buttons on date-input */
+#date-input::-webkit-outer-spin-button,
+#date-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+#date-input {
+    -moz-appearance: textfield;
+}
+/* end */
 
 input:focus-visible {
   outline: solid 1px rgb(55, 126, 126);
