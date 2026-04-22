@@ -211,11 +211,23 @@ cardDiv.addEventListener('keydown', (e) => {
         back.classList.toggle('hidden');
     }
 
-    // 🔥 NEW: press "b" to trigger globe
-    if (e.key.toLowerCase() === 'b') {
+    if (e.key === 'b') {
+   
+    
+        arrow.click();
+    }
+
+     if (e.shiftKey && e.key === 'Enter') {
         e.preventDefault();
         arrow.click();
     }
+
+
+
+
+
+
+    
 });
 
     if (card.imgUrl) {
