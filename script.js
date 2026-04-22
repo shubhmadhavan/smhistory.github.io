@@ -9,6 +9,7 @@ let score = 0;
 let latestWrongCard = null;
 
 
+
 let settings = {
     AH: true,
     MD: true,
@@ -183,6 +184,40 @@ function createAnswerCard(card, index) {
     cardDiv.classList.add('card');
     cardDiv.dataset.index = index;
 
+    cardDiv.setAttribute('tabindex', '0');
+
+
+cardDiv.addEventListener('keydown', (e) => {
+
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const currentIndex = cards.indexOf(cardDiv);
+
+    if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const next = cards[currentIndex + 1];
+        if (next) next.focus();
+    }
+
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prev = cards[currentIndex - 1];
+        if (prev) prev.focus();
+    }
+
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        cardDiv.classList.toggle('hidden');
+        front.classList.toggle('hidden');
+        back.classList.toggle('hidden');
+    }
+
+    // 🔥 NEW: press "b" to trigger globe
+    if (e.key.toLowerCase() === 'b') {
+        e.preventDefault();
+        arrow.click();
+    }
+});
+
     if (card.imgUrl) {
 
         cardDiv.style.position = 'relative';
@@ -194,6 +229,7 @@ function createAnswerCard(card, index) {
         cardDiv.appendChild(imgDiv);
     }
 
+    
     const front = document.createElement('div');
     front.classList.add('card-info');
 
@@ -490,8 +526,8 @@ function showCorrectYearFeedback() {
         inputEl.style.color = "";
         inputEl.disabled = false;
 
-        focusDateInput(); // 👈 important
-    }, 1500);
+        focusDateInput(); 
+    }, 700);
 }
 
 function focusDateInput() {
@@ -501,6 +537,21 @@ function focusDateInput() {
         input.select(); // optional: highlights text
     }
 }
+document.addEventListener("keydown", function (e) {
+    const input = document.getElementById("date-input");
+
+    // If input is already focused, do nothing
+    if (document.activeElement === input) return;
+
+    // Check for number keys (top row + numpad)
+    const isNumberKey =
+        (e.key >= "0" && e.key <= "9") || // main keyboard
+        (e.code && e.code.startsWith("Numpad")); // numpad
+
+    if (isNumberKey) {
+        focusDateInput();
+    }
+});
 
 function restartGame() {
 
