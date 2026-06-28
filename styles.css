@@ -15,7 +15,15 @@ body {
 
 }
 
-
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("data_images/0.png") repeat;
+    opacity: 0.026 !important; /* Adjust as needed */
+    pointer-events: none;
+    z-index: -1;
+}
 
 .card,
 #question-card {
