@@ -2,16 +2,16 @@
    Cards from History — modern, mobile-first styles
    ========================================================= */
 
-:root {
-  --bg-1: #0f1122;
-  --bg-2: #171a33;
-  --surface: rgba(255, 255, 255, 0.055);
-  --surface-2: rgba(255, 255, 255, 0.09);
-  --border: rgba(255, 255, 255, 0.12);
-  --text: rgba(255, 255, 255, 0.92);
-  --text-dim: rgba(255, 255, 255, 0.62);
-  --accent: #4fb3c4;          /* answer cards (teal) */
-  --accent-q: #6f9bff;        /* question card (blue) */
+:root {--bg-1: #171714;                         /* charcoal */
+--bg-2: #22221c;                         /* warm dark olive */
+--surface: rgba(226, 211, 177, 0.055);  /* parchment tint */
+--surface-2: rgba(226, 211, 177, 0.10);
+--border: rgba(218, 195, 145, 0.16);
+--text: rgba(245, 239, 222, 0.94);       /* aged ivory */
+--text-dim: rgba(207, 196, 171, 0.65);
+--accent: #918161;                       /* antique gold – answers */
+--accent-q: #ab7914;                     /* sage – questions */
+
   --good: #3ddc97;
   --bad: #ff6b6b;
   --radius: 16px;
@@ -49,6 +49,15 @@ body::before {
 
 button { font-family: inherit; }
 
+
+.card-container-question {
+  border: 1px solid rgba(249, 217, 103, 0.25);
+  border-radius: 18px;
+  box-shadow:
+    0 0 12px rgba(103, 232, 249, 0.12),
+    0 0 30px rgba(103, 232, 249, 0.08),
+    0 0 60px rgba(103, 232, 249, 0.04);
+}
 /* =========================================================
    Sticky top area
    ========================================================= */
@@ -58,7 +67,7 @@ button { font-family: inherit; }
   top: 0;
   z-index: 50;
   padding: env(safe-area-inset-top) 0 0.6rem;
-  background: linear-gradient(to bottom, rgba(15, 17, 34, 0.97) 75%, rgba(15, 17, 34, 0.0));
+  background: linear-gradient(to bottom, rgba(34, 27, 15, 0.97) 75%, rgba(34, 27, 15, 0));
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -140,7 +149,7 @@ button { font-family: inherit; }
   width: min(17rem, calc(100vw - 1.8rem));
   padding: 1rem;
   border-radius: var(--radius);
-  background: #23263f;
+  background: #3f3423;
   border: 1px solid var(--border);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   font-size: 0.92rem;
@@ -185,6 +194,8 @@ button { font-family: inherit; }
 
 /* ---------- Question panel ---------- */
 
+
+
 .question-panel {
   max-width: 36rem;
   margin: 0 auto;
@@ -211,9 +222,9 @@ button { font-family: inherit; }
   justify-content: center;
   text-align: center;
   border-radius: var(--radius);
-  border: 1px solid rgba(111, 155, 255, 0.45);
-  background: linear-gradient(145deg, rgba(60, 90, 170, 0.45), rgba(40, 50, 100, 0.35));
-  box-shadow: 0 8px 28px rgba(20, 30, 80, 0.45), 0 0 0 1px rgba(111, 155, 255, 0.08) inset;
+  border: 1px solid rgba(255, 219, 111, 0.45);
+  background: linear-gradient(145deg, rgba(158, 112, 55, 0.45), rgba(18, 9, 0, 0.5) 70%);
+  box-shadow: 0 8px 28px rgba(85, 62, 28, 0.45), 0 0 0 1px rgba(188, 137, 49, 0.08) inset;
   cursor: grab;
   transition: opacity 0.4s ease, padding 0.4s ease, min-height 0.4s ease, border-radius 0.4s ease;
   user-select: none;
@@ -300,7 +311,7 @@ button { font-family: inherit; }
   border-color: transparent;
   color: #0b1433;
 }
-#submit-date:hover { background: #86adff; }
+#submit-date:hover { background: #cba05a; }
 
 .hint {
   margin: 0.5rem 0 0;
@@ -361,7 +372,7 @@ button { font-family: inherit; }
   border-radius: var(--radius);
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
-  background: linear-gradient(135deg, rgba(79, 179, 196, 0.2), rgba(255, 255, 255, 0.05) 70%);
+  background: linear-gradient(135deg, rgba(196, 143, 79, 0.2), rgba(18, 9, 0, 0.5) 70%);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   user-select: none;
@@ -507,7 +518,7 @@ button { font-family: inherit; }
   display: inline-flex;
   align-items: center;
   height: 1.7rem;
-  background: #1b1e38;
+  background: #382c1b;
   color: var(--text-dim);
   font-size: 0.75rem;
   font-weight: 600;
@@ -532,7 +543,7 @@ button { font-family: inherit; }
 .drop-zone:active .dz-plus, .drop-zone:active .dz-text,
 .drop-zone.over .dz-plus, .drop-zone.over .dz-text {
   background: var(--accent-q);
-  color: #0b1433;
+  color: #33280b;
 }
 .drop-zone:active { background: rgba(111, 155, 255, 0.12); }
 
@@ -572,7 +583,7 @@ button { font-family: inherit; }
   border: 0;
   border-radius: 12px;
   background: var(--accent-q);
-  color: #0b1433;
+  color: #33260b;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -642,7 +653,7 @@ button { font-family: inherit; }
   .card:hover,
   .card:focus-visible {
     transform: scale(1.03);
-    box-shadow: 0 0 0 1px rgba(79, 179, 196, 0.5), 0 10px 30px rgba(79, 179, 196, 0.25);
+    box-shadow: 0 0 0 1px rgba(196, 143, 79, 0.5), 0 10px 30px rgba(196, 153, 79, 0.25);
     z-index: 5;
   }
   .card.hidden:hover,
@@ -678,7 +689,7 @@ button { font-family: inherit; }
     background: var(--accent-q);
     color: #0b1433;
   }
-  .drop-zone:hover { background: rgba(111, 155, 255, 0.1); }
+  .drop-zone:hover { background: rgba(232, 175, 99, 0.1); }
   .drop-zone:hover::before,
   .drop-zone.over::before { border-left-color: var(--accent-q); }
   .drop-zone:hover .dz-plus,
