@@ -1,177 +1,378 @@
-/* Root font scaling */
+/* =========================================================
+   Cards from History — modern, mobile-first styles
+   ========================================================= */
+
+:root {
+  --bg-1: #0f1122;
+  --bg-2: #171a33;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --text-dim: rgba(255, 255, 255, 0.62);
+  --accent: #4fb3c4;          /* answer cards (teal) */
+  --accent-q: #6f9bff;        /* question card (blue) */
+  --good: #3ddc97;
+  --bad: #ff6b6b;
+  --radius: 16px;
+  --top-h: 0px;               /* set from JS: height of sticky top panel */
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
 html {
-  font-size: 14px;
+  font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
- 
-
-      background: linear-gradient(135deg, #161625, #181832);
-
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("data_images/0.png") repeat;
-    opacity: 0.026 !important; /* Adjust as needed */
-    pointer-events: none;
-    z-index: -1;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("data_images/0.png") repeat;
+  opacity: 0.026;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.card,
-#question-card {
-    transition: all 0.9s ease;
+button { font-family: inherit; }
 
+/* =========================================================
+   Sticky top area
+   ========================================================= */
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: env(safe-area-inset-top) 0 0.6rem;
+  background: linear-gradient(to bottom, rgba(15, 17, 34, 0.97) 75%, rgba(15, 17, 34, 0.0));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
-.card:hover, 
-.card:focus {
-  outline: none;
-  box-shadow: 0 0 6px rgba(74, 140, 156,1),
-            0 0 12px rgba(74, 140, 156,1),
-            0 0 20px rgb(46, 88, 99)
-            ;
+/* ---------- HUD (score, hearts, settings) ---------- */
 
+.hud {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0.55rem 0.9rem 0.3rem;
+  max-width: 84rem;
+  margin: 0 auto;
 }
 
-
-
-.sub-title{
-  margin-top: 0.2rem;
-  font-style: italic;
-  font-size: 0.79rem !important;
-opacity: 0.55;
-transition: ease 0.4s opacity;
+.brand {
+  display: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.7;
 }
 
-.sub-title:hover {
-    opacity: 1;
+.stats {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
-/* ========================= */
-/* General Fixes */
-/* ========================= */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.pill {
+  margin: 0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-/* ========================= */
-/* Title */
-/* ========================= */
-
-.title-header {
-  text-align: center;
-  color: rgba(180, 180, 180, 0.6);
-  font-size: 0.6rem;
-  margin-top: 0.75rem;
-  opacity: 0.5;
-    transition: ease 0.4s opacity;
+.hearts {
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.05rem;
 }
 
-.title-header:hover {
-  opacity: 0.8;
-}
+.heart { transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease; }
+.heart.lost { opacity: 0.55; transform: scale(0.85); filter: grayscale(1); }
 
-
-
-/* ========================= */
-/* Settings */
-/* ========================= */
+/* ---------- Settings ---------- */
 
 .settings-container {
-  position: fixed; /* changed from absolute */
-  top: 0.9375rem;
-  right: 1.25rem;
-  z-index: 1000;
-  opacity: 0.6;
+  grid-column: 3;
+  justify-self: end;
+  position: relative;
 }
 
 #settings-cog {
-  font-size: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
   cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s, background 0.2s;
 }
+#settings-cog:hover { opacity: 1; background: var(--surface-2); }
 
 #settings-panel {
-  font-size: 0.875rem;
   position: absolute;
   right: 0;
-  margin-top: 0.625rem;
-  background: #3f3f3f;
-  border: 0.0625rem solid #4b4a4a;
-  color: #b4b2b2;
-  padding: 0.9375rem;
-  border-radius: 0.5rem;
-  width: 14.375rem;
+  top: calc(100% + 0.5rem);
+  width: min(17rem, calc(100vw - 1.8rem));
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: #23263f;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  font-size: 0.92rem;
+}
+
+.settings-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 #settings-panel label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+  color: var(--text);
+}
+
+#settings-panel input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+
+#apply-settings {
+  margin-top: 0.7rem;
+  width: 100%;
+  padding: 0.65rem;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #06222a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.hidden-settings { display: none; }
+
+/* ---------- Question panel ---------- */
+
+.question-panel {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0 0.9rem;
+}
+
+.q-label {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.q-card {
+  position: relative;
+  overflow: hidden;
   display: block;
-  margin-bottom: 0.5rem;
+  padding: 1rem 1.1rem;
+  min-height: 4.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid rgba(111, 155, 255, 0.45);
+  background: linear-gradient(145deg, rgba(60, 90, 170, 0.45), rgba(40, 50, 100, 0.35));
+  box-shadow: 0 8px 28px rgba(20, 30, 80, 0.45), 0 0 0 1px rgba(111, 155, 255, 0.08) inset;
+  cursor: grab;
+  transition: opacity 0.4s ease, padding 0.4s ease, min-height 0.4s ease, border-radius 0.4s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.q-card:active { cursor: grabbing; }
+
+#question-event {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text);
+  transition: font-size 0.4s ease;
 }
 
-.hidden-settings {
-  display: none;
+/* Question card shrinks once 20+ cards are on the table */
+.q-card.shrunk {
+  min-height: 2.6rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 12px;
+}
+.q-card.shrunk #question-event { font-size: 0.95rem; }
+
+/* ---------- Guess input ---------- */
+
+.guess-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
 }
 
-.hidden {
-  transform: rotateY(180deg);
+#date-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 2.8rem;
+  padding: 0 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  font-size: 1.05rem;          /* >=16px stops iOS zoom on focus */
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+#date-input::placeholder { color: var(--text-dim); opacity: 0.7; }
+#date-input:focus-visible { outline: none; border-color: var(--accent); background: rgba(255, 255, 255, 0.1); }
+#date-input.ok  { color: var(--good); border-color: var(--good); }
+#date-input.bad { color: var(--bad);  border-color: var(--bad); }
+#date-input.shake { animation: twitch 0.25s linear; border-color: var(--bad); }
+
+#bce-toggle,
+#submit-date {
+  height: 2.8rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: background 0.2s, transform 0.1s;
+}
+#bce-toggle:active,
+#submit-date:active { transform: scale(0.97); }
+
+#bce-toggle {
+  width: 3rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  background: var(--surface);
+  color: var(--text-dim);
+}
+#bce-toggle[aria-pressed="true"] {
+  background: rgba(255, 193, 77, 0.18);
+  border-color: rgba(255, 193, 77, 0.6);
+  color: #ffc14d;
 }
 
-/* ========================= */
-/* Card */
-/* ========================= */
+#submit-date {
+  padding: 0 1.2rem;
+  background: var(--accent-q);
+  border-color: transparent;
+  color: #0b1433;
+}
+#submit-date:hover { background: #86adff; }
+
+.hint {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  transition: opacity 0.3s, max-height 0.3s;
+  max-height: 2rem;
+  overflow: hidden;
+}
+.hint b { color: var(--accent); }
+.q-card.shrunk ~ .hint { opacity: 0; max-height: 0; margin: 0; }
+
+/* =========================================================
+   Timeline board
+   ========================================================= */
+
+.board {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0.4rem 0.9rem calc(2rem + env(safe-area-inset-bottom));
+}
+
+.timeline-label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.2rem 0 0.2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.timeline-label .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), var(--accent), var(--border));
+  opacity: 0.6;
+}
+
+.card-container-table {
+  display: flex;
+  flex-direction: column;       /* mobile default: vertical timeline */
+  align-items: stretch;
+  padding: 0.2rem 0 0;
+}
+
+/* ---------- Answer card (mobile / row layout) ---------- */
 
 .card {
-  width: clamp(4rem, 14vw, 10.4rem); 
-  height: clamp(6.2rem, 21.7vw, 15.9rem);   /* height = 1.55 x width for pc i.e. third one 
-  but hegiht 1.55 x width for first two*/
-
-  border: 0.0625rem solid rgba(120, 120, 120, 0.4);
-  border-radius: 0.75rem;
-
-  margin: 0.325rem;
-  margin-top: 0.9rem;
-  
-  padding: 0.125rem;
-
-  text-align: center;
   position: relative;
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
   overflow: hidden;
-
-    cursor: pointer;
-
-    
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 112, 124, 0.49) 20%,
-    rgba(100,100,100,0.5) 100%
-    
-  );
-
-  /* 3D FIX */
+  display: block;
+  width: 100%;
+  min-height: 4.6rem;
+  padding: 0.85rem 3rem 0.85rem 1rem;
+  text-align: left;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, rgba(79, 179, 196, 0.2), rgba(255, 255, 255, 0.05) 70%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
   transform-style: preserve-3d;
-  perspective: 800px;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  z-index: 20000 !important;
+  transition: transform 0.45s ease, box-shadow 0.25s ease, background 0.25s ease;
+ will-change: transform;
 
 }
+
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .card::before {
   content: '';
@@ -180,87 +381,70 @@ transition: ease 0.4s opacity;
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.05) 50%,
-    rgba(255,255,255,0) 100%
-  );
+  background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,0.06), rgba(255,255,255,0));
   transform: skewX(-20deg);
   pointer-events: none;
+
+}
+.card:hover::before { animation: shineSwipe 0.6s ease; }
+
+.card h3 {
+  margin: 0 0 0.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
 }
 
-.card:hover::before {
-  animation: shineSwipe 0.6s ease;
+.card .event {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
 }
 
-.card.hidden,
-.card.wrong.hidden {
-  background: rgba(100,100,100,0.5) !important;
+.card .info1,
+.card .info2 {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.card-info { position: relative; z-index: 1; }
+
+/* flipped state: card rotates, back text counter-rotates (same trick as before) */
+.card.hidden {
   transform: rotateY(180deg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-/* ========================= */
-/* card-globe */
-/* ========================= */
+.card-info.hidden { display: none; }
+.card-info-2 {
+  position: relative;
+  z-index: 1;
+  transform: rotateY(-180deg);
 
-.card-globe {
-  position: absolute;
-  bottom: 0.625rem;
-  left: 0.625rem;
-  font-size: 0.875rem;
-  color: #c9c9c9;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
-  z-index: 2; /* reduced */
-  opacity: 0.35;
+   will-change: transform;
 }
+.card-info-2.hidden { display: none; }
+.card.hidden > .card-img { transform: rotateY(-180deg); }
 
-.card-globe:hover {
-  color: #fff;
-  transform: scale(1.2);
-  opacity: 1;
-    
+.card.wrong {
+  border-left-color: var(--bad);
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.28), rgba(255, 255, 255, 0.05) 70%);
 }
+.card.wrong h3 { color: var(--bad); }
+.card.wrong.hidden { background: linear-gradient(135deg, rgba(255, 107, 107, 0.18), rgba(255, 255, 255, 0.05)); }
+.card.wrong.latest { animation: twitch 0.25s linear; }
 
-.card#question-card {  cursor: help !important; }
-/* ========================= */
-/* Text */
-/* ========================= */
-
-#question-event {
-      font-size: 1.02rem;
-      color: rgba(255,255,255,0.85);
-      font-weight: 520;
-      margin-top: 0.6rem;
-    
+.card.fresh {
+  border-left-color: var(--good);
+  box-shadow: 0 0 0 1px rgba(61, 220, 151, 0.4), 0 0 22px rgba(61, 220, 151, 0.25);
 }
-
-
-h3 {
-  font-size: 0.95rem;
-  margin-top: 0.3125rem;
-  color: rgba(255,255,255,0.85);
-  font-weight: 500;
-}
-
-.event {
-  font-size: 0.84rem;
-  font-weight: 593;
-  margin-top: -0.6rem;
-  text-decoration: underline;
-}
-
-
-.card-info {
-  color: rgba(235,235,235,0.99);
-}
-
-
-
-/* ========================= */
-/* Card Image */
-/* ========================= */
+.card.fresh h3 { color: var(--good); }
 
 .card-img {
   position: absolute;
@@ -268,340 +452,240 @@ h3 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.15;
-  transition: transform 0.6s ease;
-
-  backface-visibility: hidden; /* FIX */
+  opacity: 0.14;
+  transition: transform 0.45s ease;
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 
-.card.hidden > .card-img {
-  transform: rotateY(-180deg);
-}
-
-
-.card-info-2.hidden {display: none;} /* info2 hidden */
-.card-info-2 {opacity: 1; transform: rotateY(-180deg); 
-  color: rgba(235,235,235,0.59);}
-
-  .info1, .info2 {
-  font-style: italic;
-  margin-top: -0.4rem;
-  opacity: 0.7;
-
-}
-
-.info1 {font-size: 0.72rem;}
-.info2 {font-size: 0.65rem;}
-
-/* ========================= */
-/* Containers */
-/* ========================= */
-
-#card-container-table {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  padding: 0 0.3rem;
-}
-
-.game-container {
-  display: flex;
-  justify-content: center;
-  margin: -0.4rem 0;
-}
-
-
-
-/* ========================= */
-/* Drop Zone */
-/* ========================= */
-
-.drop-zone {
-
-
-  height: 11.375rem;
-  border: 0.125rem dashed rgba(214,214,214,0);
-
-
-
-  margin: 25px -6px;
-  width: 0.895rem;
-
-  display: inline-block;
-  transition: background 0.3s ease, border 0.3s ease;
-
-z-index: 222999;
-
-}
-
-.drop-zone:hover {
-  cursor:cell;
-}
-
-
-/*
-
-.drop-zone:hover {
-  background: rgba(255,255,255,0.05);
-  border: 0.125rem dashed rgba(214,214,214,0.4);
-}
-
-*/
-
-/* ========================= */
-/* Advance Box */
-/* ========================= */
-
-.Advance {
-
-/*
-position: relative; 
-if you put position relative then remove the next two
-*/
-  position: fixed;
-  bottom: 1.8rem;
-
-
-  left: 50%;
-  
-  transform: translateX(-50%);
-  
-  margin-top: 4rem;
-  
-  width: 18rem;
-  height: 2.1rem;
-  font-size: 0.875rem;
-  text-align: center;
-  color: rgba(203,201,201,0.7);
-
-  background-color: rgba(200,200,200,0.07);
-  border: 0.0625rem solid rgba(200,200,200,0.3);
-  border-radius: 1rem;
-
-  filter: drop-shadow(0 0.75rem 0.75rem rgba(0,0,0,0.25));
-
-}
-
-.heart {
-  margin: -0.35rem 0.5125rem;
-}
-
-.hearts {
-  left: 0;
+/* Globe: big tap target in the top-right of the card */
+.card-globe {
+  position: absolute;
+  top: 0;
   right: 0;
+  z-index: 3;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
+  align-items: center;
   justify-content: center;
   font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.card-globe:hover,
+.card-globe:active { opacity: 1; transform: scale(1.15); }
+
+/* ---------- Drop zones (the gaps between cards) ---------- */
+
+.drop-zone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.9rem;               /* big, easy tap target on mobile */
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.drop-zone::before {            /* the dashed line */
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  top: 50%;
+  border-top: 2px dashed rgba(255, 255, 255, 0.18);
+  transition: border-color 0.2s;
+}
+
+.dz-plus,
+.dz-text {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  height: 1.7rem;
+  background: #1b1e38;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.dz-plus {
+  justify-content: center;
+  width: 1.7rem;
+  border-radius: 50% 0 0 50%;
+  font-size: 1rem;
+  padding-left: 0.1rem;
+}
+.dz-text {
+  padding: 0 0.8rem 0 0.2rem;
+  border-radius: 0 999px 999px 0;
+}
+
+.drop-zone:hover::before,
+.drop-zone:active::before,
+.drop-zone.over::before { border-color: var(--accent-q); }
+.drop-zone:hover .dz-plus, .drop-zone:hover .dz-text,
+.drop-zone:active .dz-plus, .drop-zone:active .dz-text,
+.drop-zone.over .dz-plus, .drop-zone.over .dz-text {
+  background: var(--accent-q);
+  color: #0b1433;
+}
+.drop-zone:active { background: rgba(111, 155, 255, 0.12); }
+
+/* =========================================================
+   End-of-game dialog
+   ========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(8, 9, 20, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.overlay.show { display: flex; }
+
+.modal {
+  width: min(22rem, 100%);
+  padding: 1.6rem 1.4rem 1.3rem;
+  text-align: center;
+  border-radius: 22px;
+  background: #1f2240;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: pop 0.3s ease;
+}
+.modal h2 { margin: 0 0 0.4rem; font-size: 1.5rem; }
+.modal p { margin: 0 0 1.2rem; color: var(--text-dim); font-size: 1rem; }
+.modal button {
+  width: 100%;
+  padding: 0.8rem;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent-q);
+  color: #0b1433;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modal button.secondary {
   margin-top: 0.5rem;
+  background: transparent;
+  color: var(--text-dim);
+  font-weight: 600;
 }
 
-#score {
-  margin-top: 0.6rem;
-}
+/* =========================================================
+   Animations
+   ========================================================= */
 
-.card-container-table {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.card-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-
-
-
-
-
-
-/* ========================= */
-/* States */
-/* ========================= */
-
-.card.wrong {
-  background: linear-gradient(
-    to bottom,
-    rgb(124, 49, 49) 20%,
-    rgba(100, 100, 100, 0.5) 100%
-  ) !important;
-}
-
-.card.wrong.latest {
-  animation: twitch 0.2s linear;
-}
-
-.card.perfect {
-  background: linear-gradient(
-    to bottom,
-    rgb(156, 143, 85) 20%,
-    rgba(100, 100, 100, 0.5) 100%
-  ) !important;
-}
-
-#question-card {
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 64, 102, 0.7) 20%,
-    rgba(100, 100, 100, 0.5) 100%
-  );
-}
-
-
-#question-card.shrunk {
-    height: 3rem;
-    width: 52rem;
-}
-
-.date-input-container-1 {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 0.8rem;
-    opacity: 0.8;
-}
-
-
-
-#date-input {
-    width:8rem;
-    text-align: center;
-      background-color: #504f4f;
-      color: #ededed;
-         font-size: 1rem;
-      height: 1.4rem;
-    border: solid 1px #3f3f3f;
-    z-index: 2191291 !important;
-}
-
-/* prevent arrow buttons on date-input */
-#date-input::-webkit-outer-spin-button,
-#date-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-
-#date-input {
-    -moz-appearance: textfield;
-}
-/* end */
-
-input:focus-visible {
-  outline: solid 1px rgb(55, 126, 126);
-}
-
-#date-input:hover {
-  opacity: 1;
-}
-
-.date-input-container-2 {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 2px;
-   opacity: 0;
-}
-
-#submit-date { /* Place Button */
-
-   font-size: 0.75rem;
-    height: 1.2rem;
-    background-color: #706f6f;
-    z-index: 20;
-  
-}
-
-/* ========================= */
-/* Animations */
-/* ========================= */
-
-@keyframes shineSwipe {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
-
-@keyframes peekFlip {
-  0% { transform: perspective(600px) rotateY(0deg); }
-  50% { transform: perspective(600px) rotateY(10deg); }
-  100% { transform: perspective(600px) rotateY(0deg); }
-}
+@keyframes shineSwipe { 0% { left: -75%; } 100% { left: 125%; } }
 
 @keyframes twitch {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-4px); }
+  50%  { transform: translateX(4px); }
+  75%  { transform: translateX(-4px); }
   100% { transform: translateX(0); }
 }
 
-/* ========================= */
-/* Responsive */
-/* ========================= */
-
-@media (max-width: 920px) {
-
-.drop-zone {
-
-
-  margin: 25px -5px;
-
+@keyframes pop {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
-  body {  zoom: 152%;} /* 102% */ 
-
-
-  html { font-size: 7px !important;  /*this used to be 9px*/
-
-
-  h3, #question-event {
-  margin-top: 0.1125rem;
-  font-weight: unset !important;
-  font-size: 0.8rem !important;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
- .event {
-    font-weight: unset !important;
-  font-size: 0.69rem !important;
-  opacity: 1;
-  text-decoration: unset;
- }
+/* =========================================================
+   Desktop / wide screens: card grid with narrow gaps
+   (basic behaviour unchanged — just cleaner)
+   ========================================================= */
 
-.info1,.info2 {opacity: 0.65 !important;}
+@media (min-width: 760px) {
 
-   .sub-title {  font-size: 0.7rem !important;}
+  .brand { display: block; }
+  .stats { grid-column: 2; }
 
+  .q-card { cursor: grab; }
 
-  .drop-zone {
-    width: 0.7rem; /* 0.7rem; */
-    height: 8rem;
+  .card-container-table {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    row-gap: 1rem;
+    padding-top: 0.8rem;
   }
 
-  .card-globe {
-    font-size: 0.79rem;
+  .card {
+    width: clamp(9rem, 12.5vw, 11rem);
+    height: clamp(13.5rem, 19vw, 16.5rem);
+    padding: 1rem 0.8rem;
+    text-align: center;
+    border-left-width: 1px;
+    border-top: 3px solid var(--accent);
+  }
+  .card.wrong { border-left-color: var(--border); border-top-color: var(--bad); }
+  .card.fresh { border-left-color: var(--border); border-top-color: var(--good); }
+
+  .card:hover,
+  .card:focus-visible {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 1px rgba(79, 179, 196, 0.5), 0 10px 30px rgba(79, 179, 196, 0.25);
+    z-index: 5;
+  }
+  .card.hidden:hover,
+  .card.hidden:focus-visible { transform: rotateY(180deg) scale(1.03); }
+
+  .card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .card .event { font-size: 0.95rem; text-decoration: none; margin-bottom: 0.5rem; }
+  .card .info1 { font-size: 0.78rem; }
+  .card .info2 { font-size: 0.82rem; }
+
+  .card-globe { top: auto; bottom: 0; left: 0; right: auto; width: 2.4rem; height: 2.4rem; }
+
+  /* narrow vertical gaps between cards */
+  .drop-zone {
+    width: 2.0rem;
+    height: auto;
+    margin: 0 -0.1rem;
+    align-self: stretch;
+  }
+  .drop-zone::before {
+    left: 50%;
+    right: auto;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    border-top: 0;
+    border-left: 2px dashed transparent;
+  }
+  .dz-text { display: none; }
+  .dz-plus {
+    border-radius: 50%;
+    padding: 0;
+    opacity: 0;
+    background: var(--accent-q);
+    color: #0b1433;
+  }
+  .drop-zone:hover { background: rgba(111, 155, 255, 0.1); }
+  .drop-zone:hover::before,
+  .drop-zone.over::before { border-left-color: var(--accent-q); }
+  .drop-zone:hover .dz-plus,
+  .drop-zone.over .dz-plus { opacity: 1; }
 }
 
 
-#date-input {
-
-         font-size: 1rem;
-      height: 2rem;
-}
-
-#submit-date { /* Place Button */
-
-   font-size: 0.85rem;
-    height: 1.9rem;
-
-  
-}
-
-}
-
-@media (max-width: 760px) {
-
+.card  {
+    transition: transform ease 0.3s !important;
 }
