@@ -2,8 +2,6 @@
 
 ## Info
 - A card game based on History of India and the World.
-<img height="349" alt="Shubhs Cards from History" src="https://github.com/user-attachments/assets/9c534212-e4ee-496c-9a3b-bb126094cbd1" />
-
 
 ## How to Play
 - Use this [link](https://shubhmadhavan.github.io/smhistory.github.io/) to start the Card game
