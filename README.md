@@ -11,10 +11,6 @@
 - Alternatively, simply click between the cards on the deck where you want to place the Question Card
 - Watch out! Three mistakes and its Game Over! 
 
-## Dates Repository
-- If you prefer to look at the dates database, use this [link](https://docs.google.com/spreadsheets/d/1nZhkkfQtdXGrGl6AJeY5SxDPyrqG3WdV8z4dgNLxf_k/edit?usp=sharing) 
- 
-
 
 ## Extra
 I have nothing to plug here. But here's a quote:
